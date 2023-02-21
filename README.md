@@ -1,1 +1,1 @@
-New app math project
+New app math project.
