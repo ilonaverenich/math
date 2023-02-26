@@ -18,10 +18,10 @@
 .page__content{    
     
     height: 80%;
-    width: 35%;
+    width: 30%;
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 1px 1px 13px #0289b3;
+    box-shadow: 1px 1px 17px #0289b3;
     background: #000004;
 }
 
@@ -30,6 +30,13 @@
     text-align: center;
     font-size: 1.4em;
     font-weight: bold;
+}
+.page__content-content{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 85%;
 }
 .tr{
     margin: 7px;
@@ -51,14 +58,14 @@
     background: #279f02;
 }
 .icon{
+    width: 95%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    width: 200px;
-    background: #EAEAEA;
+    justify-content: flex-end;
+
 }
-.icon, .home img{
+.icon img, .home img{
     width: 35px;
     height: 35px;
     cursor: pointer;
@@ -82,4 +89,11 @@
     justify-content: space-between;
     width: 95%;
     
+}
+
+.btn-start{
+    margin-top: 30px;
+    background: #f52f2f;
+    width: 40%;
+    margin: 0 auto;
 }

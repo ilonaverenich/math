@@ -7,7 +7,7 @@ function Main() {
     <div className='page'>
       <div className='icon'>
         <img src="https://i.postimg.cc/gJ5zLsYv/icons8-50.png" alt="" />
-        <img src="https://i.postimg.cc/DycQVpnj/icons8-30-1.png" alt="" />
+        {/* <img src="https://i.postimg.cc/DycQVpnj/icons8-30-1.png" alt="" /> */}
       </div>
       <div className='page__content'>
             <div className='page__content_title'>Математические тренажеры</div>
