@@ -9,13 +9,13 @@
     display: flex;
     flex-direction: column;
     color: aliceblue;
-    background: #000000;
+    background: #db3636;
     height: 100vh;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
-.page__content{    
+.container{    
     
     height: 80%;
     width: 30%;
@@ -25,37 +25,41 @@
     background: #000004;
 }
 
-.page__content_title{
+.container__title{
     margin-top: 15px;
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1.1em;
     font-weight: bold;
 }
-.page__content-content{
+ .container__content_block{
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 80%;
-}
-.tr{
+} 
+.container__block_item{
     margin: 7px;
     color: #EAEAEA;
     border-radius: 10px;
     width: 90%;
     padding: 10px;
 }
-.tr:nth-child(1){
+.container__block_item:nth-child(1){
     background: #d2006c;
 }
-.tr:nth-child(2){
+.container__block_item:nth-child(2){
     background: #0043d2;
 }
-.tr:nth-child(3){
+.container__block_item:nth-child(3){
     background: #f7990d;
 }
-.tr:nth-child(4){
+.container__block_item:nth-child(4){
     background: #279f02;
+}
+.container__block_item:hover{
+    transition: .2s;
+    box-shadow:0px 2px 4px rgb(152, 152, 152);
 }
 .icon{
     width: 95%;
@@ -65,12 +69,12 @@
     justify-content: flex-end;
 
 }
-.icon img, .home img{
+.icon img, .header img{
     width: 35px;
     height: 35px;
     cursor: pointer;
 }
-.block{
+.container__block{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -79,11 +83,8 @@
     text-align: center;
     cursor: pointer;
 }
-.tr:hover{
-    transition: .2s;
-    box-shadow:0px 2px 4px rgb(152, 152, 152);
-}
-.home{
+
+.header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -99,15 +100,16 @@
 }
 
 @media (max-width: 999px) {
-    .page{
-        justify-content: start;
-      
-    }
-    .page__content{
+   
+    .container{
         box-shadow: 1px 1px 17px #035d1b;
         width: 85%;
         margin: 20px;
         padding: 0;
         height: 80%;
     }
+}
+
+.white{
+    background: rgb(12, 2, 81);
 }

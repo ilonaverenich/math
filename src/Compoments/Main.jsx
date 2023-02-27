@@ -1,23 +1,23 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+import Header from './Header/Header';
+import {useSelector} from 'react-redux';
 
 function Main() {
   const navigate = useNavigate();
+  const stateTheme = useSelector((store)=>store.data.stateTheme)
   return (
-    <div className='page'>
-      <div className='icon'>
-        <img src="https://i.postimg.cc/gJ5zLsYv/icons8-50.png" alt="" />
-        {/* <img src="https://i.postimg.cc/DycQVpnj/icons8-30-1.png" alt="" /> */}
-      </div>
-      <div className='page__content'>
-            <div className='page__content_title'>Математические тренажеры</div>
-            <div className='block'>
-            <div className='tr' onClick={()=>navigate('/arithmetic')}>Арифметические действия</div>
-            <div className='tr'>Перевод единиц измерения в другую</div>
-            <div className='tr'>Округление</div>
-            <div className='tr'>Таблица умножения</div>
+    <div className={stateTheme?'page':'page white'}>
+     <Header/>
+      <section className='container'>
+            <div className='container__title'>Математические тренажеры</div>
+            <div className='container__block'>
+                <div className='container__block_item' onClick={()=>navigate('/arithmetic')}>Арифметические действия</div>
+                <div className='container__block_item'>Перевод единиц измерения в другую</div>
+                <div className='container__block_item'>Округление</div>
+                <div className='container__block_item'>Таблица умножения</div>
             </div>
-      </div> 
+      </section> 
     </div>
   )
 }
