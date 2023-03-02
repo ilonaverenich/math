@@ -8,7 +8,6 @@ function Header() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const stateTheme = useSelector((store)=>store.data.stateTheme)
-    console.log(stateTheme)
 
   return (
     <div className='header'>
