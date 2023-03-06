@@ -9,6 +9,8 @@ import {stateSettingNumbersAction,stateSettingMinValue,stateSettingArifmetic,sta
 function MainArithmetic() {
     const dispatch = useDispatch();
     const [range,setRange]= useState([-10,10])
+    const [sign,setSign]= useState('')
+    const [result,setResult]= useState('')
     const stateTheme = useSelector((store)=>store.data.stateTheme)
     const navigate = useNavigate();
     
@@ -16,11 +18,27 @@ function MainArithmetic() {
     const value1 = useSelector((store)=>store.data.setting.randomValue1)
     const value2 = useSelector((store)=>store.data.setting.randomValue2)
 
+    let obj={
+        sum:'+',
+        min:'-',
+        mul:'*',
+        del:':',
+        all:['+','-','*','/']
+    }
+
     function sendOptionApp(){
     /*     navigate('/page') */  
-    dispatch(stateSettingRandomValue1(getRandomValue(setting.minValue,setting.maxValue)))
-    dispatch(stateSettingRandomValue2(getRandomValue(setting.minValue,setting.maxValue)))
+        dispatch(stateSettingRandomValue1(getRandomValue(setting.minValue,setting.maxValue)))
+        dispatch(stateSettingRandomValue2(getRandomValue(setting.minValue,setting.maxValue)))
         console.log(setting)
+        console.log()
+     
+        switch (setting.actionArifmetic){
+            case 'sum':  setResult(value1+value2);break;
+            case 'min': setResult(value1-value2);break;
+            case 'mul': setResult(value1*value2);break;
+        }
+        
     }
     function getValue(e){
         setRange(e);
@@ -68,7 +86,14 @@ function MainArithmetic() {
             </Radio.Group>
             </div>
             <Button className='btn-start' onClick={()=>sendOptionApp()}>Начать</Button>
-            {value1}+{value2} ={value1+value2}
+           <div>
+            Результат:
+           <div>
+           {+value1<=0?`(${value1})`:value1}{obj[setting.actionArifmetic]}{+value2<=0?`(${value2})`:value2} = {result}
+           </div>
+
+
+           </div>
             </div>
         </div>
     </div>
