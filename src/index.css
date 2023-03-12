@@ -1,0 +1,11 @@
+input, button{
+    color:black
+}
+.container__content_block{
+    color:aliceblue
+}
+.result{
+    border: 2px solid rgb(255, 255, 255);
+    background: rgb(1, 9, 86);
+    margin: 10px 0;
+}
