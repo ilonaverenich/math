@@ -9,7 +9,7 @@ import {stateSettingNumbersAction,stateSettingMinValue,stateSettingArifmetic,sta
 function MainArithmetic() {
     const dispatch = useDispatch();
     const [range,setRange]= useState([-10,10])
-    const [sign,setSign]= useState('')
+    const [real,setReal]= useState()
     const [result,setResult]= useState('')
 
 
@@ -33,15 +33,13 @@ function MainArithmetic() {
     function arrayRandElement(arr) {
         var rand = Math.floor(Math.random() * arr.length);
         dispatch(stateSettingArifmetic(arr[rand]))
-  
     }
     useEffect(()=>{
         switch (setting.actionArifmetic){
-            case 'sum': setResult(value1+value2);break;
-            case 'min': setResult(value1-value2);break;
+            case 'sum': setResult((value1 + Number.EPSILON) +(value2+ Number.EPSILON));break;
+            case 'min': setResult(value1 + Number.EPSILON -value2+ Number.EPSILON);break;
             case 'mul': setResult(value1*value2);break;
-            case 'del': {
-               
+            case 'del': {     
             /* value1%value2!==0? setResult(value1/value2): console.log('hhh') */
             };break;
             case 'all': arrayRandElement(arr);break;
@@ -49,11 +47,24 @@ function MainArithmetic() {
     },[value1,value2])
 
     function sendOptionApp(){
-       
-    /*     navigate('/page') */  
-          dispatch(stateSettingRandomValue1(getRandomValue(setting.minValue,setting.maxValue)))
-         dispatch(stateSettingRandomValue2(getRandomValue(setting.minValue,setting.maxValue)))
-       
+        let a = getRandomValueReal(10,50)
+        console.log( typeof a)
+        console.log(a[a.length-1] == 0 ? (+a).toFixed(1):a) //десятичные дроби
+    /*     navigate('/page') */
+        console.log(setting.numbers)
+        if (setting.numbers == 'integer'){
+            dispatch(stateSettingRandomValue1(getRandomValue(setting.minValue,setting.maxValue)))
+            dispatch(stateSettingRandomValue2(getRandomValue(setting.minValue,setting.maxValue)))
+        }  else {
+            dispatch(stateSettingRandomValue1(getRandomValueReal(setting.minValue,setting.maxValue)))
+            dispatch(stateSettingRandomValue2(getRandomValueReal(setting.minValue,setting.maxValue)))
+        }
+    
+
+         
+         setReal(getRandomValue(setting.minValue,setting.maxValue))
+         console.log(real)
+         console.log(setting)
         
     }
     function getValue(e){
@@ -69,6 +80,14 @@ function MainArithmetic() {
 
     
       }
+
+      function getRandomValueReal(min,max) {
+        let rand = min - 0.5 + Math.random() * (max - min + 1);
+   
+        return +(rand.toFixed(2));
+    
+      }
+
       function handleCalc(){
        
         if(userValueInput==result){
@@ -121,12 +140,15 @@ function MainArithmetic() {
            <div className='result'>
             Результат:
            <div>
-           {+value1<=0?`(${value1})`:value1}{obj[setting.actionArifmetic]}{+value2<=0?`(${value2})`:value2} = <input value={userValueInput} onChange={(e)=>setUserInputValue(e.target.value)}/><button onClick={()=>handleCalc()}>Проверить</button> 
+           {+value1 <=0?`(${value1})`:value1}{obj[setting.actionArifmetic]}{+value2<=0?`(${value2})`:value2} = <input value={userValueInput} onChange={(e)=>setUserInputValue(e.target.value)}/>
+           
+           <button onClick={()=>handleCalc()}>Проверить</button> 
            <div>
           {/*  Мое значение: {userValueInput}  */}
            </div>
            <div>
-            Ответ: {result} 
+            Ответ: {setting.numbers == 'integer'?(+result).toFixed(0):parseFloat((+result + Number.EPSILON))}
+     
            </div>
            </div>
 

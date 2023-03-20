@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     color: aliceblue;
-    background: #db3636;
+    background: #f5e1e1;
     height: 100vh;
     width: 100%;
     justify-content: center;
@@ -22,7 +22,7 @@
     border-radius: 15px;
     padding: 20px;
     box-shadow: 1px 1px 17px #0289b3;
-    background: #808080;
+    background: #30c6ec;
 }
 
 .container__title{
@@ -112,5 +112,5 @@
 }
 
 .white{
-    background: rgb(12, 2, 81);
+    background: rgb(96, 72, 250);
 }
