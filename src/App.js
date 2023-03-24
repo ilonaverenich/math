@@ -10,7 +10,7 @@ function App() {
   
      <BrowserRouter>
       <Routes>
-        <Route index path='/' element={<Main/>} ></Route>
+        <Route index path='/*' element={<Main/>} ></Route>
         <Route path='/arithmetic' element={<MainArithmetic/>} ></Route>
         <Route path='/page' element={<Arifmetic/>}></Route>
       </Routes>
