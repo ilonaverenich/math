@@ -30,14 +30,14 @@ function MainArithmetic() {
         <div className='container'>
             <div className='container__title'>Арифметические действия</div>
             <div className='container__content_block'>
-            <div>Укажите:</div>
+            <div className='container__content_block_subtitle'>Укажите:</div>
             <Radio.Group defaultValue="integer" onChange={(e)=>dispatch(stateSettingNumbersAction(e.target.value))}>
                 <Space direction="vertical">
-                    <Radio value='integer'>Целые числа</Radio>
+                    <Radio value='integer' >Целые числа</Radio>
                     <Radio value='real'>Десятичные числа</Radio>
                 </Space>
             </Radio.Group>
-            <div>Диапазон значений: [{range[0]}, {range[1]} ]</div>
+            <div className='container__content_block_subtitle'>Диапазон значений: <span className='range'>[{range[0]}, {range[1]} ]</span></div>
             <Slider
                 range
                 min={-100}
@@ -45,7 +45,7 @@ function MainArithmetic() {
                 step={5}
                 defaultValue={[-10, 10]}
                 onChange={(e)=>getValue(e)}/>
-            <div>Действия:</div>
+            <div className='container__content_block_subtitle'>Действия:</div>
             <div>
             <Radio.Group onChange={(e)=>dispatch(stateSettingArifmetic(e.target.value))} defaultValue='sum' >
                 <Space direction="vertical" >

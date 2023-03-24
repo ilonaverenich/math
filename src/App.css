@@ -16,7 +16,6 @@ html div{
     color: aliceblue;
     height: 100vh;
     width: 100%;
-    justify-content: center;
     align-items: center;
 }
 .container{    
@@ -25,7 +24,7 @@ html div{
     width: 50%;
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 1px 1px 10px #959595;
+    box-shadow: 1px 1px 8px #d2d2d2;
     background: #ffffff;
 }
 
@@ -42,6 +41,9 @@ html div{
     justify-content: space-around;
     height: 80%;
 } 
+.container__content_block_subtitle{
+    font-weight: bold;
+}
 .container__block_item{
     margin: 7px;
     color: #000000;
@@ -87,7 +89,9 @@ html div{
     width: 95%;
     
 }
-
+.range{
+    color: red
+}
 .btn-start{
     margin-top: 30px;
     background:rgb(202, 211, 255);
@@ -98,7 +102,7 @@ html div{
 @media (max-width: 999px) {
    
     .container{
-        box-shadow: 1px 1px 17px #035d1b;
+ 
         width: 85%;
         margin: 20px;
         padding: 0;
@@ -114,6 +118,7 @@ html div{
     font-size: 26px;
 }
 .input{
+    text-align: center;
     width: 20%;
     font-size: 26px;
 }
@@ -148,4 +153,29 @@ html div{
     text-align: center;
     font-weight: bold;
     color: rgb(255, 0, 72);
+}
+@media (max-width: 500px) {
+    .page{
+        height: 80vh;
+        background: #ffffff;
+    }
+    .container{
+        width: 95%;
+        box-shadow: none;
+      
+    }
+    .container__content_block div{
+     
+       
+    }
+    .container__title{
+        margin-bottom:5px;
+        font-size: 18px;
+    }
+    .container__block_item{
+        background: rgb(180, 255, 160);
+        width: 90%;
+        font-size: 14px;
+    }
+    
 }

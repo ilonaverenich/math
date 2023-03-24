@@ -37,6 +37,19 @@ function Arifmetic() {
           };break;
       }
     },[value1,value2])
+
+    useEffect(()=>{
+      if (setting.numbers == 'integer'){
+            
+        dispatch(stateSettingRandomValue1(getRandomValue(setting.minValue,setting.maxValue)))
+        dispatch(stateSettingRandomValue2(getRandomValue(setting.minValue,setting.maxValue)))
+    }  else {
+        dispatch(stateSettingRandomValue1(getRandomValueReal(setting.minValue,setting.maxValue)))
+        dispatch(stateSettingRandomValue2(getRandomValueReal(setting.minValue,setting.maxValue)))
+    }
+      setUserInputValue('')
+  
+    },[])
 /*   let  arr = ['sum','min','mul']
     function arrayRandElement(arr) {
         var rand = Math.floor(Math.random() * arr.length);
