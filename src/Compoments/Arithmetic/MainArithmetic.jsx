@@ -52,7 +52,7 @@ function MainArithmetic() {
                     <Radio value='sum'>Сложение</Radio>
                     <Radio value='min'>Вычитание</Radio>
                     <Radio value='mul'>Умножение</Radio>
-                    <Radio value='all'>Все арифметические действия</Radio>
+                    <Radio value='all'>Все арифметические действия <i> (В разработке)</i></Radio>
                 </Space>
             </Radio.Group>
             </div>

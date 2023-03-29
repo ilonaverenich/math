@@ -11,8 +11,8 @@ function Header() {
 
   return (
     <div className='header'>
-    <img onClick={()=>navigate(-1)} src="https://i.postimg.cc/Bvvf5zQd/icons8-50.png" alt="" />
-    <img onClick={()=>dispatch(stateThemeAction(stateTheme))} src={stateTheme?"https://i.postimg.cc/gJ5zLsYv/icons8-50.png":'https://i.postimg.cc/DycQVpnj/icons8-30-1.png'} alt="" />
+    <img onClick={()=>navigate(-1)} src="https://i.postimg.cc/qR4wzXmB/icons8-50.png" alt="" />
+{/*     <img onClick={()=>dispatch(stateThemeAction(stateTheme))} src={stateTheme?"https://i.postimg.cc/gJ5zLsYv/icons8-50.png":'https://i.postimg.cc/DycQVpnj/icons8-30-1.png'} alt="" /> */}
   </div>
   )
 }

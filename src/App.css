@@ -20,14 +20,18 @@ html div{
 }
 .container{    
    
-    height: 80%;
+    height: 80vh;
     width: 50%;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 1px 1px 8px #d2d2d2;
     background: #ffffff;
 }
+.container__arifmetic{
 
+    height: 65vh;
+    
+} 
 .container__title{
     margin-top: 15px;
     text-align: center;
@@ -41,6 +45,9 @@ html div{
     justify-content: space-around;
     height: 80%;
 } 
+.container__content_block div{
+    margin: 1px;
+}
 .container__content_block_subtitle{
     font-weight: bold;
 }
@@ -52,6 +59,10 @@ html div{
     padding: 15px 0px;
     background: rgb(202, 211, 255);
     box-shadow:0px 2px 4px rgb(152, 152, 152);
+}
+.container__block_item a{
+    text-decoration: none;
+    color: #000000;
 }
 
 .container__block_item:hover{
@@ -67,6 +78,7 @@ html div{
 
 }
 .icon img, .header img{
+    padding-top: 10px;
     width: 35px;
     height: 35px;
     cursor: pointer;
@@ -93,10 +105,21 @@ html div{
     color: red
 }
 .btn-start{
-    margin-top: 30px;
-    background:rgb(202, 211, 255);
-    width: 40%;
+    text-align: center;
     margin: 0 auto;
+    background:rgb(67, 90, 173);
+    border: 2px solid #1b0f79;
+    width: 150px;
+    height: 40px;
+    color: #f3f3f3;
+    font-weight: bold;
+}
+.round{
+    color:  red;
+}
+.sing-round{
+    font-size: 30px;
+    padding: 0px 10px;
 }
 
 @media (max-width: 999px) {
@@ -104,9 +127,8 @@ html div{
     .container{
  
         width: 85%;
-        margin: 20px;
         padding: 0;
-        height: 80%;
+        height: 100vh;
     }
 }
 
@@ -119,7 +141,7 @@ html div{
 }
 .input{
     text-align: center;
-    width: 20%;
+    width: 150px;
     font-size: 26px;
 }
 .container__subtitle{
@@ -134,25 +156,46 @@ html div{
 .container__btn{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 200px;
     justify-content: center;
-    margin: 0 auto;
+    margin: 10px auto;
 
 }
 .btn-check{
     background: #ffddfd;
-    margin: 2px;
+    margin: 4px;
+    height: 35px;
+    border: 2px solid #f4c7d8;
 }
 .btn-result{
     background: rgb(202, 211, 255);;
-    margin: 2px;
+    margin: 4px;
+    height: 35px;
+    border: 2px solid #a8afff;
 
 }
 .mark{
-    font-size: 40px;
+    padding-top: 10px;
+    font-size: 35px;
     text-align: center;
     font-weight: bold;
     color: rgb(255, 0, 72);
+}
+.status__block{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.mark-value{
+    font-weight: bold;
+}
+.container__arifmetic{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 @media (max-width: 500px) {
     .page{
@@ -160,12 +203,13 @@ html div{
         background: #ffffff;
     }
     .container{
+       
         width: 95%;
         box-shadow: none;
       
     }
-    .container__content_block div{
-     
+    .container__content_block{
+      height: 70vh;
        
     }
     .container__title{
@@ -178,4 +222,7 @@ html div{
         font-size: 14px;
     }
     
+}
+.form-submit{
+
 }
