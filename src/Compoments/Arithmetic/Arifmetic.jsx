@@ -3,29 +3,12 @@ import Header from '../Header/Header'
 import {useState, useEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux';
 import {stateSettingNumbersAction,stateSettingMinValue,stateSettingArifmetic,stateSettingMaxValue,stateSettingRandomValue1,stateSettingRandomValue2} from '../../Redux/Reducers/mainReducers'
-import emailjs from '@emailjs/browser';
+import Email from './Actions/Email';
+
 
 function Arifmetic() {
 
-var formData = new FormData();
-  formData.append("message", "Groucho")
-
-const [email,setEmail] = useState('')
-  const form = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    
-    emailjs.send('service_vyrw4lf', 'template_ea5t73w', templateParams,'5dc8crz-UKPrP6gfp').then((result) => {
-      console.log('Всё гуд со стороны обьекта:'+ result.text);
-  }, (error) => {
-      console.log('Ошибка со стороны обьекта:'+ error.text);
-  });
-    
-  };
-
-
-  
+ 
   const inputEl = useRef(null);
   const dispatch = useDispatch();
   const value1 = useSelector((store)=>store.data.setting.randomValue1)
@@ -88,12 +71,12 @@ const [email,setEmail] = useState('')
       setGrade(Math.round(success/(success+error)*10))
     }
       function getRandomValue(min,max) {
-        let rand = min - 0.5 + Math.random() * (max - min + 1);
+        let rand = min - 1 + Math.random() * (max - min + 2);
         return Math.round(rand);
    
       }
       function getRandomValueReal(min,max) {
-        let rand = min - 0.5 + Math.random() * (max - min + 1);
+        let rand = min - 1 + Math.random() * (max - min + 2);
         return +(rand.toFixed(2));
     
       }
@@ -104,7 +87,7 @@ function handleCalc(){
    
   if(userValueInput==Math.round(result * 100000) / 100000){
      setSuccess(success+1)
-     /*  message.success('Верно') */
+      message.success('Правильно!')
       if (setting.numbers == 'integer'){
             
         dispatch(stateSettingRandomValue1(getRandomValue(setting.minValue,setting.maxValue)))
@@ -117,10 +100,10 @@ function handleCalc(){
   }
   else{
       setError(error+1)
-      setMessage(` ${value1}${obj[setting.actionArifmetic] || obj[sumbol]} ${value2} = ${result},  а вы ответили ${userValueInput}`)
+      setMessages(` ${value1}${obj[setting.actionArifmetic] || obj[sumbol]} ${value2} = ${result},  а вы ответили ${userValueInput}`)
       templateParams.result.push(message)
       console.log(message)
-      /* message.error('Не верно! Попробуй еще раз!') */
+      message.error('Не верно! Попробуй еще раз!')
   }
 }
 
@@ -142,21 +125,14 @@ function handleCalc(){
           <Button className='btn-result' onClick={()=>handleRes()}>Подвести итог</Button>
           </div>
           {state? <div className='mark'>
-            Оценка: 
-          {(success==0 && error==0)?'0':grade}</div>:''}
+            Оценка:
+          {(success==0 && error==0)?<span className='grade'>{0}</span>:<span className='grade'>{grade}</span>}</div>:''}
           
 
-          {state?<form className='form-submit'  ref={form}  onSubmit={sendEmail}>
-          <p>Результаты можем отправить на вашу почту:</p>
-          <label> Введите email </label>
-          <Input type="email" onChange={(e)=>setEmail(e.target.value)} name="user_email" />
-   
-          <Input type="submit" value="Send" />
-        
-          </form>:''} 
+          
 
           </div>
-          
+          {state?<Email templateParams={templateParams}/>:''} 
          
         {!state?  <div className='status__block'>
          
