@@ -87,7 +87,7 @@ function Round() {
         <Header/>
         <div className='container'>
         <div className='container__subtitle'> Округлите до <span className='round'>{value2}</span>:</div> 
-            <div className='container__calc'>
+          <div className='container__calc'>
                 <span className='value'>{value1}</span> <span className='sing-round'>≈ </span><Input className='input' ref={inputEl} value={userValue} onChange={(e)=>setUserValue(e.target.value)} onKeyDown={(e)=>(e.which===13)?handleChange():''}/>
             </div>
             <div className='container__btn'>

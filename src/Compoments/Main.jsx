@@ -15,6 +15,7 @@ function Main() {
                 <div className='container__block_item' onClick={()=>navigate('/arithmetic')}>Арифметические действия</div>
                 <div className='container__block_item'> <a href='https://ilonaverenich.github.io/react-app-math/'>Перевод единиц измерения в другую</a> </div>
                 <div className='container__block_item' onClick={()=>navigate('/round')}>Округление</div>
+                <div className='container__block_item' onClick={()=>navigate('/prime')}>Простые числа</div>
             
             </div>
       </section> 

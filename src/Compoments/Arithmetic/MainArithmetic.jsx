@@ -11,6 +11,7 @@ function MainArithmetic() {
     const navigate = useNavigate();
     const [range,setRange]= useState([-10,10])
     const setting = useSelector((store)=>store.data.setting)
+    
 
     function sendOptionApp(){
         console.log(setting)
